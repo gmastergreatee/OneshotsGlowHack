@@ -4,24 +4,37 @@ extern CHackProcess fProcess; // Same object thats in OneshotsGlowHack.cpp but w
 Offsets O; // Accessing the Offsets tru this object.
 Offsets::GlowStruct EntGlow; // GlowStruct 
 
-void Glow::Run()
+void Glow::Run(int& maxPlayerCount, bool& gloAll, bool& gloBothTeam)
 {
 	ReadInfo();
-	
-	for (int i = 0; i < 200; i++) // current glowcount and max glowcount have been removed? thats why i just put 200
+
+	int playerCount = 0;
+
+	for (int i = 0; i < 150; i++) // current glowcount and max glowcount have been removed? thats why i just put 200
 	{
 		ReadEntity(i);
-		GlowEntitys(i);
+
+		if (ClassID == Player && Health > 0 && (gloBothTeam == true ? true : (LocalTeam == TeamNum ? false : true))) {
+			//increment the playerCount
+			playerCount++;
+			//only glow if within player range
+			if (playerCount <= maxPlayerCount)
+				GlowEntitys(i);
+		}
+		else if (gloAll) {
+			GlowEntitys(i);
+		}
 	}
 }
 
-void Glow::ReadInfo(){ 
-	
+void Glow::ReadInfo() {
+
 	ReadProcessMemory(fProcess.__HandleProcess, (PBYTE*)(fProcess.__dwordClient + O.m_dwLocalPlayer), &LocalPlayer, sizeof(int), NULL); // Gets LocalPlayer
 	ReadProcessMemory(fProcess.__HandleProcess, (PBYTE*)(fProcess.__dwordClient + O.m_dwGlowObject), &GlowObject, sizeof(int), NULL); // Gets GlowObject
-	ReadProcessMemory(fProcess.__HandleProcess, (PBYTE*)(LocalPlayer + O.m_iTeamNum), &LocalTeam, sizeof(int), NULL);} // Gets My team from LocalPlayer
+	ReadProcessMemory(fProcess.__HandleProcess, (PBYTE*)(LocalPlayer + O.m_iTeamNum), &LocalTeam, sizeof(int), NULL);
+} // Gets My team from LocalPlayer
 
-void Glow::ReadEntity(int Entnum){ // Reads our Entity information
+void Glow::ReadEntity(int Entnum) { // Reads our Entity information
 
 	ReadProcessMemory(fProcess.__HandleProcess, (PBYTE*)(GlowObject + 0x38 * Entnum), &Entity, sizeof(int), NULL); // First Adress in Glowobject is the Pointer to the entity its glowing.
 
@@ -31,15 +44,17 @@ void Glow::ReadEntity(int Entnum){ // Reads our Entity information
 	ReadProcessMemory(fProcess.__HandleProcess, (PBYTE*)(ClassID + 0x14), &ClassID, sizeof(int), NULL);
 
 	ReadProcessMemory(fProcess.__HandleProcess, (PBYTE*)(Entity + O.m_iTeamNum), &TeamNum, sizeof(int), NULL);// Getting the entitys Team Number
-	ReadProcessMemory(fProcess.__HandleProcess, (PBYTE*)(Entity + O.m_iHealth), &Health, sizeof(int), NULL); } // Getting the entitys Team Number
+	ReadProcessMemory(fProcess.__HandleProcess, (PBYTE*)(Entity + O.m_iHealth), &Health, sizeof(int), NULL);
+} // Getting the entitys Team Number
 
-void Glow::GlowEntity(int Entnum){ // Glows our entity
+void Glow::GlowEntity(int Entnum) { // Glows our entity
 	if (Entity && LocalPlayer)
-		WriteProcessMemory(fProcess.__HandleProcess, (PBYTE*)(GlowObject + 0x38 * Entnum + 0x4), &EntGlow, sizeof(EntGlow), NULL);} // Writes a struct with WPM
-	
-void Glow::GlowEntitys(int i){ // Glows all the entitys with custom color based on ClassID.
-	
-	switch (ClassID) 
+		WriteProcessMemory(fProcess.__HandleProcess, (PBYTE*)(GlowObject + 0x38 * Entnum + 0x4), &EntGlow, sizeof(EntGlow), NULL);
+} // Writes a struct with WPM
+
+void Glow::GlowEntitys(int i) { // Glows all the entitys with custom color based on ClassID.
+
+	switch (ClassID)
 	{
 	case AK47:
 		SetColor(1.f, 0.3f, 0.f, 1.f);
@@ -54,12 +69,14 @@ void Glow::GlowEntitys(int i){ // Glows all the entitys with custom color based 
 		GlowEntity(i);
 		break;
 	case Player: //
-		if (LocalTeam != TeamNum || GetKeyState(VK_F1) == 1){
-			SetColor( (1.f - (Health * 0.01f)), Health * 0.01f, 0.f, 0.8f);
-			GlowEntity(i);			}
+		if (LocalTeam != TeamNum || GetKeyState(VK_F1) == 1) {
+			SetColor((1.f - (Health * 0.01f)), Health * 0.01f, 0.f, 0.8f);
+			GlowEntity(i);
+		}
 		else {
 			SetColor(0.f, 0.f, 1.f, 0.8f);
-			GlowEntity(i);}
+			GlowEntity(i);
+		}
 		break;
 	case C4:
 		SetColor(1.f, 0.0f, 0.f, 1.f);
@@ -250,6 +267,6 @@ void Glow::GlowEntitys(int i){ // Glows all the entitys with custom color based 
 	}
 }
 
-void Glow::SetColor(float r, float g, float b, float a){ // setting the glow color
+void Glow::SetColor(float r, float g, float b, float a) { // setting the glow color
 	EntGlow.red = r; EntGlow.green = g; EntGlow.blue = b; EntGlow.alpha = a;
 }

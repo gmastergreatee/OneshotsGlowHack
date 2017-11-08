@@ -6,7 +6,7 @@ class Glow
 {
 public:
 
-	void Run();
+	void Run(int&, bool&, bool&);
 
 	void ReadInfo();
 
@@ -33,7 +33,7 @@ private:
 	DWORD TeamNum = 0;
 	DWORD ClassID = 0;
 
-	enum ClassIDs: int {
+	enum ClassIDs : int {
 		AK47 = 1,
 		BaseCSGrenade = 8,
 		BaseCSGrenadeProjectile = 9,
@@ -51,7 +51,7 @@ private:
 		Item_Healthshot = 91,
 		MolotovGrenade = 97,
 		MolotovProjectile = 98,
-	    PlantedC4 = 108,
+		PlantedC4 = 108,
 		SensorGrenade = 129,
 		SensorGrenadeProjectile = 130,
 		SmokeGrenade = 133,
@@ -86,8 +86,8 @@ private:
 		WeaponUSP = 243,
 		WeaponXM1014 = 244
 	};
-	
-	
-	
+
+
+
 
 };
