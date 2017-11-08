@@ -94,6 +94,7 @@ void displayStat(bool& isActivated, int& maxPlayers, bool& gloAll, bool& gloBoth
 		<< "F9    : Toggle glow (enemy team)/(both teams)" << std::endl
 		<< "F10   : Reset all settings to defaults" << std::endl << std::endl
 		<< "=======================================================================================" << std::endl << std::endl
-		<< "Note : Need to run this app again to attach to a new csgo.exe instance" << std::endl;
+		<< "Note : Need to run this app again to attach to a new csgo.exe instance" << std::endl
+		<< "Keep settings to default for optimum performance" << std::endl;
 	Sleep(100); // Sleep of 100ms so that the values don't change rapidly
 }
