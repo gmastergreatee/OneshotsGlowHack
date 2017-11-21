@@ -7,6 +7,6 @@ This project is created to help starters`(not pros & whoever comes in between)` 
 
 NOTE : The method used in this app is 100% VAC proof(tested myself on multiple servers). But still, use it at your own risk.
 
-Release download : https://openload.co/f/b3Wpm9qA_AQ/OneshotsGlowHack.exe
+Release download : https://openload.co/f/9HduxuHShzI/OneshotsGlowHack.exe
 
 And no, __Aimbot__ will not be integrated as `wall-hack` must be enough for starters
