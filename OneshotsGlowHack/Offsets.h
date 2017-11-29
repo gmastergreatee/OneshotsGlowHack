@@ -21,8 +21,8 @@ public:
 	DWORD m_dwLocalPlayer = 11120108;
 	DWORD m_iHealth = 252;
 	DWORD m_iTeamNum = 240;
-	DWORD m_dwGlowObject = 83446128;
-	DWORD m_dwEntityList = 78084908;
+	DWORD m_dwGlowObject = 83446168;
+	DWORD m_dwEntityList = 78084924;
 	//-------------------------------
 };
 
