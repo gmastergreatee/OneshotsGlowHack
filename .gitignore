@@ -27,7 +27,6 @@
 *.lib
 
 # Executables
-*.exe
 *.out
 *.app
 /.vs
@@ -35,3 +34,11 @@
 /OneshotsGlowHack/Debug/*
 /Release/*
 /Debug/*
+
+/HazeDumper/csgo.cs
+/HazeDumper/csgo.hpp
+/HazeDumper/csgo.json
+/HazeDumper/csgo.min.json
+/HazeDumper/csgo.toml
+/HazeDumper/csgo.vb
+/HazeDumper/config_2017-11-21.json

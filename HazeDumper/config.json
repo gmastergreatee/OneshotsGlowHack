@@ -1,0 +1,50 @@
+{
+    "netvars": {
+        "m_iHealth": {
+            "netvar": "m_iHealth",
+            "table": "DT_BasePlayer"
+        },
+        "m_iTeamNum": {
+            "netvar": "m_iTeamNum",
+            "table": "DT_BasePlayer"
+        }
+    },
+    "options": {
+        "file_name": "csgo",
+        "minify": false
+    },
+    "signatures": {
+        "dwGetAllClasses": {
+            "extra": 1,
+            "mode_read": true,
+            "mode_subtract": true,
+            "module": "client.dll",
+            "offset": 0,
+            "pattern": "A1 ? ? ? ? C3 CC CC CC CC CC CC CC CC CC CC A1 ? ? ? ? B9"
+        },
+        "dwLocalPlayer": {
+            "extra": 1,
+            "mode_read": true,
+            "mode_subtract": true,
+            "module": "client.dll",
+            "offset": 16,
+            "pattern": "A3 ? ? ? ? C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 59 C3 6A ?"
+        },
+        "dwEntityList": {
+            "extra": 1,
+            "mode_read": true,
+            "mode_subtract": true,
+            "module": "client.dll",
+            "offset": 0,
+            "pattern": "BB ? ? ? ? 83 FF 01 0F 8C ? ? ? ? 3B F8"
+        },
+        "dwGlowObjectManager": {
+            "extra": 1,
+            "mode_read": true,
+            "mode_subtract": true,
+            "module": "client.dll",
+            "offset": 4,
+            "pattern": "A1 ? ? ? ? A8 01 75 4B"
+        }
+    }
+}
