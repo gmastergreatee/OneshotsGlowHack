@@ -18,11 +18,11 @@ public:
 		
 	};
 	//-----------Offsets-------------
-	DWORD m_dwLocalPlayer = 0xA9ADEC;
-	DWORD m_iHealth = 252;
-	DWORD m_iTeamNum = 240;
-	DWORD m_dwGlowObject = 0x4F94920;
-	DWORD m_dwEntityList = 0x4A77AFC;
+	DWORD m_dwLocalPlayer = 0xA9BDDC;
+	DWORD m_iHealth = 0xFC;
+	DWORD m_iTeamNum = 0xF0;
+	DWORD m_dwGlowObject = 0x4F959F0;
+	DWORD m_dwEntityList = 0x4A78BA4;
 	//-------------------------------
 };
 
