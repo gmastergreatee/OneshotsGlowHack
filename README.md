@@ -26,6 +26,8 @@ I'm assuming that you have already installed Visual Studio
 - Update the values in __"Offsets.h"__ file(__line 21__ to __line 25__) as displayed in the console
 - Now build the visual studio project & done. Off you go playing. :smile:
 
+For newbies in programming, let me tell you that the updated hack will be generated inside the root __"Release"__ folder
+
 Enjoy, have a great day!
 Cya
 gmastergreatee
