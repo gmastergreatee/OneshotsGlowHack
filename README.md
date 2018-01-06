@@ -1,4 +1,7 @@
 # OneshotsGlowHack
+
+[![Build status](https://ci.appveyor.com/api/projects/status/enmj9qcsp5lp7h84?svg=true)](https://ci.appveyor.com/project/gmastergreatee/oneshotsglowhack)
+
 GlowHack for CSGO
 - core programming by [OneShot](https://github.com/OneshotGH)
 - menu options by [gmastergreatee](https://github.com/gmastergreatee)
