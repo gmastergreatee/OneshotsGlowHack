@@ -14,7 +14,7 @@ Release download __(Update 05 Jan, 2018 - no update required compared to 30 Dec,
 
 And no, __Aimbot__ will not be integrated as `wall-hack` must be enough for starters
 
-Make sure to run the hack with __"admin"__ privideges for it to work correctly.
+Make sure to run the hack with __"admin"__ privileges for it to work correctly.
 
 ## Steps to update the hack yourself
 
