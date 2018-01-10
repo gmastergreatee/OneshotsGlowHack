@@ -89,7 +89,7 @@ int main() // our start this code runs first.
 
 void displayStat(bool& isActivated, int& maxPlayers, bool& gloAll, bool& gloBothTeam) {
 	system("cls");
-	std::cout << "GlowHack 2017-01-11 (non-steam tested)" << std::endl
+	std::cout << "GlowHack 2018-01-11 (non-steam tested)" << std::endl
 		<< "[OneshotGH & gmastergreatee]" << std::endl
 		<< "=======================================================================================" << std::endl << std::endl
 		<< "Activation Status(F12)      : " << (isActivated == true ? "Activated" : "De-Activated") << std::endl
