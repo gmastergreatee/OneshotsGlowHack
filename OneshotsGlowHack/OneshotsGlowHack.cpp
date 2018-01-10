@@ -8,9 +8,20 @@
    @    #+ @@@@# @@@@; @@@@    @@@@@ :@:     @@@@@. @  @. @@@@ '@@@@ @` @; @@@@' @@+ */
 #include "OneshotsGlowHack.h"
 CHackProcess fProcess; // Object made so we can use the class functions
+Offsets O;
 Glow G; // GlowClass Object 
 int main() // our start this code runs first.
 {
+	system("title CSGO GlowHack by OneShot and gmastergreatee");
+	try {
+		loadOffsets();
+	}
+	catch (char* error) {
+		std::cout << error << std::endl << "Hit \"Enter\" key to exit...";
+		getchar();
+		return 1;
+	}
+
 	bool gloActive = false;
 	bool gloAll = false;
 	bool gloBothTeam = false;
@@ -78,8 +89,8 @@ int main() // our start this code runs first.
 
 void displayStat(bool& isActivated, int& maxPlayers, bool& gloAll, bool& gloBothTeam) {
 	system("cls");
-	std::cout << "GlowHack 2017-12-30 (non-steam tested)" << std::endl
-		<< "[Oneshot & gmastergreatee]" << std::endl
+	std::cout << "GlowHack 2017-01-11 (non-steam tested)" << std::endl
+		<< "[OneshotGH & gmastergreatee]" << std::endl
 		<< "=======================================================================================" << std::endl << std::endl
 		<< "Activation Status(F12)      : " << (isActivated == true ? "Activated" : "De-Activated") << std::endl
 		<< "Max PlayerCount(F6/F7)      : " << maxPlayers << std::endl
@@ -96,4 +107,64 @@ void displayStat(bool& isActivated, int& maxPlayers, bool& gloAll, bool& gloBoth
 		<< "Note : Need to run this app again to attach to a new csgo.exe instance" << std::endl
 		<< "Keep settings to default for optimum performance" << std::endl;
 	Sleep(100); // Sleep of 100ms so that the values don't change rapidly
+}
+
+void loadOffsets() {
+	std::ifstream inFile;
+
+	std::string inputFileName = "csgo.toml";
+
+	inFile.open(inputFileName);
+
+	if (inFile.is_open()) {
+		int netvarIndex = 0;
+		int signatureIndex = 0;
+		bool start = false;
+
+		while (!inFile.eof()) {
+			std::string line;
+
+			std::getline(inFile, line);
+
+			if (netvarIndex < 2) {
+				int index = line.find("m_");
+				if (index >= 0 && index < 1000) {
+					setOffset(line);
+					netvarIndex++;
+				}
+			}
+			else if (signatureIndex < 4) {
+				int index = line.find("dw");
+				if (index >= 0 && index < 1000) {
+					setOffset(line);
+					signatureIndex++;
+				}
+			}
+		}
+	}
+	else {
+		throw "Unable to find file \"csgo.toml\".\n\nFollow below steps to generate the file(also to update the hack) :-\n\n1. Run \"csgo.exe\", connect to an online server & join a team.\n2. Run \"HazeDumper.exe\" with admin priviledges.\n3. After you see some offsets in the console, close the HazeDumper console.\n\nDone, the file(csgo.toml) has been successfully generated. Enjoy, the hack";
+	}
+}
+
+void setOffset(std::string line) {
+	int splitOffset = line.find(" = ");
+	int realOffset = std::stoi(line.substr(splitOffset + 3));
+	std::string offsetType = line.substr(0, splitOffset);
+
+	if (offsetType == "m_iHealth") {
+		O.m_iHealth = realOffset;
+	}
+	else if (offsetType == "m_iTeamNum") {
+		O.m_iTeamNum = realOffset;
+	}
+	else if (offsetType == "dwEntityList") {
+		O.m_dwEntityList = realOffset;
+	}
+	else if (offsetType == "dwGlowObjectManager") {
+		O.m_dwGlowObject = realOffset;
+	}
+	else if (offsetType == "dwLocalPlayer") {
+		O.m_dwLocalPlayer = realOffset;
+	}
 }

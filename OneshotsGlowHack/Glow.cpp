@@ -1,7 +1,7 @@
 #include "Glow.h"
 
 extern CHackProcess fProcess; // Same object thats in OneshotsGlowHack.cpp but we access it in here.
-Offsets O; // Accessing the Offsets tru this object.
+extern Offsets O; // Accessing the Offsets tru this object.
 Offsets::GlowStruct EntGlow; // GlowStruct 
 
 void Glow::Run(int& maxPlayerCount, bool& gloAll, bool& gloBothTeam)

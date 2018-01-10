@@ -1,0 +1,19 @@
+OneshotsGlowHack
+=================================================================================
+Credits
+---------------------------------------------------------------------------------
+OneShotsGH(https://github.com/OneshotGH)
+gmastergreatee(https://github.com/gmastergreatee)
+
+=================================================================================
+How to update the hack??
+=================================================================================
+
+Please follow the given steps to update the hack(after csgo update) :-
+
+1. Run "csgo.exe", connect to an online server & join a team.
+2. Run "HazeDumper.exe" with admin priviledges.
+3. After you see some offsets in the console, close the HazeDumper console.
+
+Done, the hack is updated. 
+Enjoy! Cya... gmastergreatee

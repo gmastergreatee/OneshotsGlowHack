@@ -127,7 +127,16 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <PostBuildEvent>
-      <Command>"$(SolutionDir)upx.exe" --ultra-brute "$(SolutionDir)$(Configuration)\$(ProjectName).exe"</Command>
+      <Command>echo Compressing executable
+"$(SolutionDir)upx.exe" --ultra-brute "$(SolutionDir)$(Configuration)\$(ProjectName)$(TargetExt)"
+echo Copying HazeDumper to release
+copy "$(SolutionDir)HazeDumper\hazedumper-rs-v0.2.1.exe" "$(SolutionDir)$(Configuration)\HazeDumper.exe"
+echo Copying HazeDumper config to release
+copy "$(SolutionDir)HazeDumper\config.json" "$(SolutionDir)$(Configuration)\config.json"
+echo Copying update help file
+copy "$(SolutionDir)How to update hack.txt" "$(SolutionDir)$(Configuration)\How to update hack.txt"
+del "$(SolutionDir)$(Configuration)\OneshotsGlowHack.iobj"
+del "$(SolutionDir)$(Configuration)\OneshotsGlowHack.ipdb"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
