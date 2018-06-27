@@ -10,7 +10,7 @@ GlowHack for CSGO
 
 This project is created to help starters`(not pros & whoever comes in between)` to get up to speed with the high skill level required in online server matches against human players.
 
-NOTE : The method used in this app is 100% VAC proof(tested myself on multiple servers).
+NOTE : The method used in this app is ~~100% VAC proof(tested myself on multiple servers)~~__[old data, currently unconfirmed]__.
 But still, use it at your own risk(you must act like you aren't using one, LOL, some people tend to forget that).
 
 Release download : click [here](https://ci.appveyor.com/project/gmastergreatee/oneshotsglowhack/build/artifacts)
