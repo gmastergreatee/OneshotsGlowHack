@@ -8,10 +8,9 @@ GlowHack for CSGO
 - [OneShot](https://github.com/OneshotGH)
 - [gmastergreatee](https://github.com/gmastergreatee)
 
-This project is created to help starters`(not pros & whoever comes in between)` to get up to speed with the high skill level required in online server matches against human players.
+This project is created to help starters`(not pros & whoever comes in between)` to get up to speed with the high skill level required in online server matches against human players in community servers.
 
-NOTE : The method used in this app is ~~100% VAC proof(tested myself on multiple servers)~~__[old data, currently unconfirmed]__.
-But still, use it at your own risk(you must act like you aren't using one, LOL, some people tend to forget that).
+NOTE : Use it at your own risk, no warranties what-so-ever.
 
 Release download : click [here](https://ci.appveyor.com/project/gmastergreatee/oneshotsglowhack/build/artifacts)
 
@@ -25,13 +24,7 @@ IMPORTANT : After downloading, you would need to update the hack.
 
 ## Steps to update the hack yourself
 
-Please follow the given steps to update the hack(after csgo update) :-
-
-1. Run "csgo.exe", connect to an online server & join a team.
-2. Run "HazeDumper.exe" with admin priviledges.
-3. After you see some offsets in the console, close the HazeDumper console.
-
-Done, the hack is updated.
+- Check [this issue](https://github.com/gmastergreatee/OneshotsGlowHack/issues/6#issuecomment-609641437)
 
 Check [here](https://github.com/gmastergreatee/OneshotsGlowHack/issues/2#issuecomment-355546809) and [here](https://github.com/gmastergreatee/OneshotsGlowHack/issues/4#issuecomment-393759534), in case of build errors.
 
